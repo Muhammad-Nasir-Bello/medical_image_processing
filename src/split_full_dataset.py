@@ -65,7 +65,7 @@ def main():
     copy_images(val_pairs, "val")
     copy_images(test_pairs, "test")
 
-    print("\n✅ DONE! Full dataset split created.\n")
+    print("\n DONE! Full dataset split created.\n")
     print(f"Train: {len(train_paths)}")
     print(f"Val:   {len(val_paths)}")
     print(f"Test:  {len(test_paths)}")
