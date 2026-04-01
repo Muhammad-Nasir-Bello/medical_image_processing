@@ -129,7 +129,7 @@ def evaluate():
 
     print("Saved: metrics_summary.json")
 
-    print("\n✅ Evaluation complete!")
+    print("\n Evaluation complete!")
 
 
 if __name__ == "__main__":
