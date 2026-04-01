@@ -41,12 +41,12 @@ def main():
         test_images = list(test_dir.rglob("*.jpg"))
         img_path = str(np.random.choice(test_images))
 
-    print(f"🖼️ Using image: {img_path}")
+    print(f" Using image: {img_path}")
 
     # Load image
     img = cv2.imread(img_path)
     if img is None:
-        raise ValueError("❌ Cannot read image. Check path.")
+        raise ValueError(" Cannot read image. Check path.")
 
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
@@ -71,8 +71,8 @@ def main():
     save_path = "experiments/run1/gradcam_sample.png"
     cv2.imwrite(save_path, cv2.cvtColor(overlay, cv2.COLOR_RGB2BGR))
 
-    print(f"🔥 Grad-CAM saved → {save_path}")
-    print(f"🧠 Predicted Class: {class_name}")
+    print(f" Grad-CAM saved → {save_path}")
+    print(f" Predicted Class: {class_name}")
 
 
 if __name__ == "__main__":
