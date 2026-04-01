@@ -78,10 +78,10 @@ def main():
     out_dir = Path(CFG.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    print("📦 Loading data...")
+    print(" Loading data...")
     train_loader, val_loader, _ = make_loaders()
 
-    print("🧠 Building model...")
+    print(" Building model...")
     model = build_model().to(device)
 
     optimizer = Adam(model.parameters(), lr=CFG.lr, weight_decay=1e-5)
@@ -90,7 +90,7 @@ def main():
     best_acc = 0
     train_losses, val_losses, val_accs = [], [], []
 
-    print("🚀 Starting training...")
+    print(" Starting training...")
     for epoch in range(CFG.epochs):
         print(f"\nEpoch {epoch+1}/{CFG.epochs}")
 
@@ -107,7 +107,7 @@ def main():
         if val_acc > best_acc:
             best_acc = val_acc
             torch.save({"model": model.state_dict()}, out_dir / "best.pt")
-            print("💾 Saved new BEST model!")
+            print("Saved new BEST model!")
 
     # Save curves
     plot_curves(train_losses, val_losses, val_accs, out_dir)
@@ -120,7 +120,7 @@ def main():
     with open(out_dir / "metrics_summary.json", "w") as f:
         json.dump(summary, f, indent=2)
 
-    print("\n🎉 Training complete!")
+    print("\nTraining complete!")
 
 
 if __name__ == "__main__":
